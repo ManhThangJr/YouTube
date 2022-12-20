@@ -1,0 +1,32 @@
+.container{
+        width: 78%;
+        display: flex;
+        margin-left: 5%;
+        margin-top: 2%;
+        flex-wrap: wrap;
+        position: absolute;
+        top:100px;
+        left: 240px;
+        justify-content: space-between;
+        z-index: 0;
+}
+.link{
+    width: 24%;
+    text-decoration: none;
+    margin-top: 1%;
+}
+.link2{
+    width: 19%;
+    text-decoration: none;
+    margin-top: 1%;
+}
+.abc{
+    width: 90%;
+    display: flex;
+    margin-top: 2%;
+    flex-wrap: wrap;
+    position: absolute;
+    top:80px;
+    left:100px;
+    justify-content: space-between;
+}

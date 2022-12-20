@@ -1,0 +1,181 @@
+.container {
+  width: 100%;
+  display: flex;
+  height: 1500px;
+  position: relative;
+  top:80px;
+}
+
+.left {
+  width: 72%;
+}
+
+.right {
+  width: 28%;
+  padding-left: 1.2%;
+}
+
+.video {
+  margin-left: 8%;
+}
+
+.adv {
+  width: 80%;
+  height: max-content;
+  border-radius: 10px;
+}
+
+.cat{
+    background-color: #e4e4e4 !important;
+    color: #000000 !important;
+   
+}
+
+.catetory {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3% 0;
+}
+
+.item {
+  margin: 2% 0;
+}
+
+.under {
+  margin-left: 8%;
+  h3 {
+    margin: 1%;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+  div p {
+    color: #7c7c7c;
+    font-size: 80%;
+  }
+  div:nth-of-type(2) {
+    margin-left: 5px;
+  }
+  .btn {
+    width: 80px;
+    height: 34px;
+    font-size: medium;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+  }
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.rightCard {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  text-align: right;
+  div {
+    background-color: #e4e4e4;
+    height: max-content;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+}
+
+.containerCard {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.desciption {
+  background-color: rgb(245, 245, 245);
+  padding: 2%;
+  border-radius: 10px;
+  margin-bottom: 3%;
+}
+
+.containerComment {
+  width: 100%;
+}
+.middle {
+  margin-bottom: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  div:first-of-type {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  > input {
+    outline: none;
+    border: none;
+    margin-left: 2%;
+    width: 96%;
+    border-bottom: 0.5px solid rgb(219, 219, 219);
+    :hover {
+      border-bottom: 0.5px solid rgb(0, 0, 0);
+    }
+  }
+}
+
+.amount {
+  font-size: 110%;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  div:last-of-type {
+    font-weight: bolder;
+    width: max-content;
+  }
+}
+
+.comment {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  > div:first-of-type {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+  }
+  > div:last-of-type {
+    width: 90%;
+    margin-left: 2%;
+    > div {
+      margin-bottom: 10px;
+      > span {
+        margin-right: 2%;
+      }
+    }
+  }
+}
+
+.nameComment{
+    font-weight: bolder;
+}
+
+.time{
+    font-size: 90%;
+    color: #7c7c7c;
+}

@@ -1,0 +1,65 @@
+.container{
+    width: 94%;
+    position: fixed;
+    z-index: 9;
+    top:70px;
+    left:250px;
+    padding: 0.5%;
+    white-space: nowrap;
+    
+    background-color: rgb(253, 252, 252);
+    height: max-content; 
+}
+    
+
+.catetory{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 32px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    margin: 0 0 0 20px;   
+    padding:1px 4px;
+    font-size: 0.9rem;
+}
+
+.catetory2{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 32px;
+    background-color: black;
+    color:white;
+    border-radius: 10px;
+    margin: 0 0 0 20px;   
+    padding:1px 4px;
+    font-size: 0.9rem;
+}
+.open{
+    padding: 1%;
+    width: 100%;
+    background-color: rgb(253, 252, 252);
+    height: max-content;
+    position:absolute;
+    z-index: 0;
+    top:70px;
+    left:100px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 760px) {
+    .open{
+        width: 99% !important;
+      left: 10px !important;
+    }
+   }
+@media only screen and (max-width: 1200px) {
+    .open{
+        width: 98%;
+        left:100px;
+    }
+   }

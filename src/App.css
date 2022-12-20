@@ -1,0 +1,53 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  font-size: 15px;
+  background-color: rgb(253, 252, 252);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.css-m9babb-MuiPaper-root-MuiCard-root img:hover {
+  transform: scale(3, 3);
+}
+
+.slick-next::before {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(253, 252, 252);
+  display: none;
+}
+.slick-prev::before {
+  color: rgb(0, 0, 0) !important;
+  display: none;
+  background-color: rgb(253, 252, 252);
+}
+.slick-track {
+  display: flex !important;
+  width: max-content !important;
+}
+.slick-slider:hover .slick-next::before {
+  display: inline-block;
+}
+.slick-slider:hover .slick-prev::before {
+  display: inline-block;
+}
+
+.slick-slide {
+  width: 80% !important;
+}
+@media only screen and (max-width: 760px) {
+  .slick-slider {
+    width: 90% !important;
+    left: 4%;
+  }
+}
+@media only screen and (max-width: 1480px) {
+  .slick-next::before,
+  .slick-prev::before {
+    display: inline-block !important;
+  }
+}

@@ -1,0 +1,96 @@
+.container {
+  scrollbar-color: inherit;
+  overflow-y: scroll;
+  font-size: 102%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  top: 80px;
+  div:hover {
+    border-radius: 20px;
+    background-color: rgb(245, 245, 245);
+  }
+  > div {
+    width: 200px;
+    padding: 4%;
+    display: flex;
+    align-items: center;
+    > span {
+      margin: 3% 10%;
+    }
+  }
+  span {
+    font-size: 87%;
+  }
+}
+
+.container::-webkit-scrollbar {
+  width: 9px;
+}
+.container::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.container div:first-of-type {
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px;
+  font-weight: bolder;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgb(218, 218, 218);
+  width: 86%;
+}
+
+#name {
+  display: flex-block;
+  font-size: 94%;
+  float: left;
+}
+
+.service {
+  color: rgb(119, 119, 119);
+  width: 80%;
+  font-size: 70%;
+  font-weight: bolder;
+  margin-top: 5px;
+}
+
+.icon {
+  font-size: 135%;
+}
+
+.wraper {
+  width: 64px;
+  position: fixed;
+  margin-top: 80px;
+  
+}
+
+.wrap {
+  padding-top: 12%;
+  width: 100%;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > p {
+    font-size: 59%;
+    font-weight: 500;
+  }
+  &:hover{
+    border-radius: 15px;
+    background-color: rgb(219, 219, 219);
+  }
+}
+
+.ic {
+  font-size: 140%;
+}
