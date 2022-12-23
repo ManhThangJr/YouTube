@@ -1,22 +1,16 @@
 .container {
-  scrollbar-color: inherit;
-  overflow-y: scroll;
-  font-size: 102%;
+  padding: 0 9px;
+  width: 250px;
+  align-items: center;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
-  height: 100vh;
-  position: fixed;
-  z-index: 9999;
   top: 80px;
-  div:hover {
-    border-radius: 20px;
-    background-color: rgb(245, 245, 245);
-  }
+  bottom: 0;
   > div {
-    width: 200px;
-    padding: 4%;
+    width: 90%;
+    padding: 3%;
     display: flex;
     align-items: center;
     > span {
@@ -28,16 +22,51 @@
   }
 }
 
-.container::-webkit-scrollbar {
-  width: 9px;
-}
-.container::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.15);
-}
+.container2 {
+  padding: 0 9px;
+  width: 258px;
+  align-items: center;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 80px;
+  z-index: 999;
+  bottom: 0;
+  > div:hover {
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: rgb(243, 243, 243);
+  }
+  > div {
+    width: 90%;
+    padding: 3%;
+    display: flex;
+    align-items: center;
+    > span {
+      margin: 3% 10%;
+    }
+  }
+  span {
+    font-size: 87%;
+  }
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background-color: rgba(0, 0, 0, 0.473);
+    }
+  }
+
 
 .container div:first-of-type {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(243, 243, 243);
+  border-radius: 20px;
+  font-weight: bolder;
+}
+.container2 div:first-of-type {
+  background-color: rgb(243, 243, 243);
   border-radius: 20px;
   font-weight: bolder;
 }
@@ -45,7 +74,7 @@
 hr {
   border: none;
   border-top: 1px solid rgb(218, 218, 218);
-  width: 86%;
+  width: 200px;
 }
 
 #name {
@@ -56,7 +85,7 @@ hr {
 
 .service {
   color: rgb(119, 119, 119);
-  width: 80%;
+  width: 200px;
   font-size: 70%;
   font-weight: bolder;
   margin-top: 5px;
@@ -70,7 +99,6 @@ hr {
   width: 64px;
   position: fixed;
   margin-top: 80px;
-  
 }
 
 .wrap {
@@ -85,7 +113,7 @@ hr {
     font-size: 59%;
     font-weight: 500;
   }
-  &:hover{
+  &:hover {
     border-radius: 15px;
     background-color: rgb(219, 219, 219);
   }

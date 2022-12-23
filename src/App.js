@@ -7,6 +7,8 @@ import "./App.css";
 import Slider from './component/slider/slider'
 import Search from "./layout/search";
 import Theme from "./layout/Theme";
+import Step1 from './SignIn/step1/step1'
+import Step2 from './SignIn/step2/step2'
 
 function App() {
   return (
@@ -14,10 +16,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/search/:id" element={<Search />} />
-        <Route path="/categories/:id" element={<Theme />} />
+        <Route path="country/:id" element={<Theme/>} />
+        <Route path="/result" element={<Search />} />
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/slider" element={<Slider/>} />
+        <Route path="/accounts" element={<Step1/>} />
+        <Route path="/accounts/password" element={<Step2/>} />
       </Routes>
     
       

@@ -12,6 +12,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { BsClock } from "react-icons/bs";
 import { CgPlayList } from "react-icons/cg";
+import { SiMomenteo } from "react-icons/si";
 
 export default function Media({
   img,
@@ -22,15 +23,17 @@ export default function Media({
   time,
   id,
   loading,
-  setLoad,
+  duration,
   Channel,
   idd,
 }) {
   const nav = useNavigate();
   const [play, setPlay] = useState(false);
   const [move, setMove] = useState(false);
+  const [dura, setDura] = useState(true);
 
   const handlePlay = () => {
+    setDura(false);
     setMove(true);
     ref.current = setTimeout(() => {
       setMore(true);
@@ -39,10 +42,10 @@ export default function Media({
     }, 1800);
   };
 
+  const ref = useRef();
   const handleOut = () => {
     clearTimeout(ref.current);
   };
-  const ref = useRef();
 
   const handleChannel = () => {
     window.location.replace(`https://www.youtube.com/channel/${Channel}`);
@@ -50,8 +53,7 @@ export default function Media({
 
   const [more, setMore] = useState(false);
 
-  const Video = () => {
-    console.log("run1");
+  const Video = () => { 
     return (
       <div style={{ width: "100%", height: "200px" }}>
         <iframe
@@ -75,10 +77,11 @@ export default function Media({
           setMore(false);
           setMove(false);
           setPlay(false);
+          setDura(true);
         }}
       >
         <Card
-          sx={{ boxShadow: "none", maxHeight: "500px" }}
+          sx={{ boxShadow: "none" }}
           className={styles.card}
           onClick={() => {
             nav(`/detail/${idd}`);
@@ -101,25 +104,22 @@ export default function Media({
               onMouseLeave={handleOut}
               onMouseOver={handlePlay}
               sx={{
-                borderBottomLeftRadius: "20px",
-                borderBottomRightRadius: "20px",
+                borderBottomLeftRadius: "15px",
+                borderBottomRightRadius: "15px",
               }}
               component="img"
-              height=""
               image={img}
               alt="Paella dish"
               className={styles.img}
             />
           )}
           <CardContent
-            onMouseLeave={() => setPlay(false)}
             sx={{
               width: "100%",
-              padding: 0,
+              padding: "2%",
               display: "flex",
               justifyContent: "space-between",
               marginTop: "10px",
-              height: "max-content",
             }}
           >
             {loading ? (
@@ -193,14 +193,13 @@ export default function Media({
                   backgroundColor: "rgb(241, 241, 241);",
                   fontSize: "60%",
                   color: "rgb(31, 31, 31)",
-                  fontWeight: "550",
                   display: "flex",
                   alignItems: "center",
                   borderRadius: "20px",
                 }}
               >
                 <BsClock style={{ fontSize: "140%", marginRight: "2%" }} />{" "}
-                <span>Xem sau</span>
+                <span style={{fontWeight:'bold'}}>Xem sau</span>
               </Button>
               <Button
                 className={styles.btn}
@@ -216,15 +215,17 @@ export default function Media({
                   borderRadius: "20px",
                 }}
               >
-                <CgPlayList style={{ fontSize: "170%", marginRight: "2%" }} />{" "}
-                <span>Thêm vào danh sách chờ</span>
+                <CgPlayList style={{ fontSize: "170%", marginRight: "2%" }} />
+                <span style={{fontWeight:'bold'}}>Thêm vào danh sách chờ</span>
               </Button>
             </Stack>
           ) : null}
         </Card>
-        {move ? (
+        {!loading?dura ? (
+          <div className={styles.duration}>{duration}</div>
+        ) : move ? (
           <div className={styles.move}>Tiếp tục di chuột để phát</div>
-        ) : null}
+        ) : null:null}
       </div>
     </>
   );

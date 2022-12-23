@@ -6,8 +6,6 @@
     left:250px;
     padding: 0.5%;
     white-space: nowrap;
-    
-    background-color: rgb(253, 252, 252);
     height: max-content; 
 }
     
@@ -18,11 +16,14 @@
     align-items: center;
     width: max-content;
     height: 32px;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(243, 243, 243);
     border-radius: 10px;
     margin: 0 0 0 20px;   
-    padding:1px 4px;
+    padding:1px 7px;
     font-size: 0.9rem;
+    &:hover{
+        background-color: rgb(221, 221, 221);
+    }
 }
 
 .catetory2{

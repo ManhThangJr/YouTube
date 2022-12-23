@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import styles from "./nav.module.scss";
 import { BsFillHouseDoorFill, BsClockHistory } from "react-icons/bs";
-import { MdShortcut } from "react-icons/md";
 import { FiYoutube } from "react-icons/fi";
-import { SiYoutubegaming } from "react-icons/si";
-import { RxCounterClockwiseClock } from "react-icons/rx";
 import { BiLike } from "react-icons/bi";
-import {TfiShortcode,TfiYoutube} from 'react-icons/tfi'
-import {useSelector} from 'react-redux'
-
+import { TfiShortcode, TfiYoutube } from "react-icons/tfi";
+import { useSelector } from "react-redux";
+import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
+import VoiceChatOutlinedIcon from "@mui/icons-material/VoiceChatOutlined";
+import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
+import SlideshowIcon from "@mui/icons-material/Slideshow";
+import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
+import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
+import MusicNoteOutlinedIcon from '@mui/icons-material/MusicNoteOutlined';
+import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 
 import {
   FcMusic,
@@ -19,17 +26,27 @@ import {
 
 var nav1 = [
   { icon: <BsFillHouseDoorFill className={styles.icon} />, title: "Trang chủ" },
-  { icon: <MdShortcut className={styles.icon} />, title: "Short" },
-  { icon: <FiYoutube className={styles.icon} />, title: "Kênh đăng kí" },
+  { icon: <VoiceChatOutlinedIcon className={styles.icon} />, title: "Short" },
+  {
+    icon: <SubscriptionsOutlinedIcon className={styles.icon} />,
+    title: "Kênh đăng kí",
+  },
 ];
 
 var nav2 = [
-  { icon: <SiYoutubegaming className={styles.icon} />, title: "Thư viện" },
   {
-    icon: <RxCounterClockwiseClock className={styles.icon} />,
+    icon: <VideoLibraryOutlinedIcon className={styles.icon} />,
+    title: "Thư viện",
+  },
+  {
+    icon: <HistoryOutlinedIcon className={styles.icon} />,
     title: "Video đã xem",
   },
-  { icon: <BsClockHistory className={styles.icon} />, title: "Xem sau" },
+  {
+    icon: <SlideshowIcon className={styles.icon} />,
+    title: "Video của bạn",
+  },
+  { icon: <QueryBuilderIcon className={styles.icon} />, title: "Xem sau" },
   { icon: <BiLike className={styles.icon} />, title: "Video đã thích" },
 ];
 
@@ -40,33 +57,45 @@ var nav3 = [
   { icon: <FcNews className={styles.icon} />, title: "Tin tức" },
 ];
 
-function Nav() {
+var nav4 = [
+  { icon: <LocalFireDepartmentOutlinedIcon className={styles.icon} />, title: "Thịnh hành" },
+  { icon: <MusicNoteOutlinedIcon className={styles.icon} />, title: "Âm nahcj" },
+  { icon: <SportsEsportsOutlinedIcon className={styles.icon} />, title: "Trò chơi" },
+  { icon: <NewspaperOutlinedIcon className={styles.icon} />, title: "Tin tức" },
+  { icon: <EmojiEventsOutlinedIcon className={styles.icon} />, title: "Thể thao" },
+];
 
-  const isOpen=useSelector(state=>state.isOpen)
+function Nav() {
+  const isOpen = useSelector((state) => state.isOpen);
+  const [show, setShow] = useState(false);
 
   return (
     <>
       {!isOpen.value ? (
         <div className={styles.wraper}>
           <div className={styles.wrap}>
-            <BsFillHouseDoorFill className={styles.ic}/>
+            <BsFillHouseDoorFill className={styles.ic} />
             <p>Trang chủ</p>
           </div>
           <div className={styles.wrap}>
-            <TfiShortcode className={styles.ic}/>
+            <TfiShortcode className={styles.ic} />
             <p>Shorts</p>
           </div>
           <div className={styles.wrap}>
-            <TfiYoutube className={styles.ic}/>
+            <TfiYoutube className={styles.ic} />
             <p>Kênh đăng ký</p>
           </div>
           <div className={styles.wrap}>
-            <FiYoutube className={styles.ic}/>
+            <FiYoutube className={styles.ic} />
             <p>Thư </p>
           </div>
         </div>
       ) : (
-        <div className={styles.container} id={styles.container}>
+        <div
+          className={!show ? styles.container : styles.container2}
+          onMouseOver={() => setShow(true)}
+          onMouseLeave={() => setShow(false)}
+        >
           {nav1.map((item, index) => {
             return (
               <div key={index}>
@@ -96,7 +125,7 @@ function Nav() {
           })}
           <hr />
           <div id={styles.name}>Khám phá</div>
-          {nav2.map((item, index) => {
+          {nav4.map((item, index) => {
             return (
               <div key={index}>
                 {item.icon}

@@ -1,0 +1,17 @@
+
+.container{
+    position: relative;
+    top:218px;
+    width: 100%;
+}
+
+.wrapper{
+    margin: 0 auto;
+    width: 448px;
+    height: 500px;
+    border: 0.5px solid rgb(201, 201, 201);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+}

@@ -1,25 +1,26 @@
 import React, { useEffect, useState, useCallback } from "react";
 import styles from "./search.module.scss";
-import { useParams, useNavigate } from "react-router-dom";
+import {  useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Catetory from "../component/catetory/catetory";
 import Nav from "../component/navbar/nav";
-import {TiTickOutline} from 'react-icons/ti'
+import { TiTickOutline } from "react-icons/ti";
 
 function Search() {
-  const { id } = useParams();
+
+  const [query,]  = useSearchParams()
   const [data, setData] = useState();
- 
+  
+  console.log(query.get('search_query'))
   useEffect(() => {
     axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/search?key=AIzaSyB9zRJCDnDrLtxyLNDq4o6J49KFJKguN7Y&part=snippet&type=video&maxResults=20&q=${id}`
+    .get(
+      `https://www.googleapis.com/youtube/v3/search?key=AIzaSyCd0swP7k-d0rWWPQ_NKsYnH8buvMM2F3Q&part=snippet&type=video&maxResults=5&q=${query.get('search_query')}`
       )
       .then((res) => {
-        setData(res.data.items)
-        console.log(1);
+        setData(res.data.items);
       });
-  }, [id]);
+    }, [query]);
 
   const handleTime = useCallback((v) => {
     let time = v;
@@ -49,32 +50,54 @@ function Search() {
     if (check === 0) return day + " ngày trước";
   }, []);
 
-  const nav=useNavigate()
+  const nav = useNavigate();
   return (
     <>
       <Catetory />
       <Nav />
       <div className={styles.container}>
-
-      
         {data?.map((value, i) => {
           return (
-            <div className={styles.wrapper} key={i} onClick={()=>nav(`/${value?.id.videoId}`)}>
-            <div className={styles.imgs}>
-                <iframe className={styles.img} src={`https://www.youtube.com/embed/${value?.id.videoId}?autoplay=1&&clipboard-write&autoplay=1`} allowFullScreen  alt="" />
-            </div>
-            <div className={styles.right}>
+            <div
+              className={styles.wrapper}
+              key={i}
+              onClick={() => nav(`/detail/${value?.id.videoId}`)}
+            >
+              <div className={styles.imgs}>
+                <iframe
+                  className={styles.img}
+                  src={`https://www.youtube.com/embed/${value?.id.videoId}?autoplay=1&&clipboard-write&autoplay=1`}
+                  allowFullScreen
+                  alt=""
+                />
+              </div>
+              <div className={styles.right}>
                 <div className={styles.title}>{value?.snippet.title}</div>
-                <div className={styles.view}>{handleTime(value?.snippet.publishedAt)}</div>
-                <div className={styles.channel}>
-                    <div><img style={{height:'25px',width:'25px',borderRadius:'50%'}} src={value?.snippet.thumbnails.default.url}/></div>
-                    <span>{value?.snippet.channelTitle}</span>
-                    <span><TiTickOutline/></span>
+                <div className={styles.view}>
+                  {handleTime(value?.snippet.publishedAt)}
                 </div>
-                <div className={styles.des}><p>{value?.snippet.description}</p></div>
+                <div className={styles.channel}>
+                  <div>
+                    <img
+                      style={{
+                        height: "25px",
+                        width: "25px",
+                        borderRadius: "50%",
+                      }}
+                      src={value?.snippet.thumbnails.default.url}
+                    />
+                  </div>
+                  <span>{value?.snippet.channelTitle}</span>
+                  <span>
+                    <TiTickOutline />
+                  </span>
+                </div>
+                <div className={styles.des}>
+                  <p>{value?.snippet.description}</p>
+                </div>
                 <div className={styles.new}>Mới</div>
+              </div>
             </div>
-          </div>
           );
         })}
       </div>

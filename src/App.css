@@ -2,7 +2,7 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
   font-size: 15px;
-  background-color: rgb(253, 252, 252);
+  background-color: rgb(255, 255, 255);
 }
 
 * {
@@ -16,12 +16,12 @@ body {
 }
 
 .slick-next::before {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(196, 196, 196) !important;
   background-color: rgb(253, 252, 252);
   display: none;
 }
 .slick-prev::before {
-  color: rgb(0, 0, 0) !important;
+  color: rgb(196, 196, 196) !important;
   display: none;
   background-color: rgb(253, 252, 252);
 }
@@ -50,4 +50,16 @@ body {
   .slick-prev::before {
     display: inline-block !important;
   }
+}
+
+#simple-popper{
+  z-index: 99999  ;
+}
+
+#btn{
+  color:#065fd4 !important;
+  font-size: 90% !important;
+  font-weight: bold !important;
+ border-color: rgb(218, 218, 218) !important;
+ border-radius: 20px !important;
 }

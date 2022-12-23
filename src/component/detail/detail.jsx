@@ -19,7 +19,7 @@ function Detail() {
   const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    fetching().then((res) => {
+    fetching(10).then((res) => {
       setData(res.items);
     });
     axios
@@ -37,9 +37,8 @@ function Detail() {
         <iframe
           width="92%"
           height="720"
-          src={`https://www.youtube.com/embed/${id}`}
+          src={`https://www.youtube.com/embed/${id}?autoplay=1&clipboard-write`}
           title="abc"
-          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           className={styles.video}

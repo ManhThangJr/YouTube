@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import styles from './card.module.scss'
 
 
 export default function MediaControlCard({title,channel,img}) {
@@ -14,13 +15,13 @@ export default function MediaControlCard({title,channel,img}) {
     <Card sx={{ display: 'flex',width:'80%', boxShadow:'none',borderRadius:'10px',height:'100px' }}>
       <CardMedia
         component="img"
-        sx={{ maxWidth:'151px' }}
+        sx={{ maxWidth:'151px',borderRadius:'10px' }}
         image={img}
         alt="Live from space album cover"
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component="div" sx={{fontSize:'90%',fontWeight:'bolder',color:'#383838'}}>
+          <Typography component="div" sx={{fontSize:'90%',fontWeight:'bolder',color:'#383838'}} className={styles.title}>
            {title}
           </Typography>
           <Typography sx={{fontSize:'80%'}} color="text.secondary" component="div">

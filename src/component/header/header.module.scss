@@ -1,12 +1,12 @@
 .headerContainer {
   width: 100%;
   display: flex;
-  background-color: rgb(252, 252, 252);
+  background-color: rgb(255, 255, 255);
   align-items: center;
   justify-content: space-between;
   height: 70px;
   position: fixed;
-  z-index: 999;
+  z-index: 9999 ;
 }
 .img {
   height: 70px;
@@ -279,15 +279,13 @@
   width: 330px;
   height: max-content;
   background-color: white;
-  position: absolute;
-  z-index: 9999 !important;
+  position: relative;
   right: 5%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 20px;
   > div:first-of-type {
-    margin-top: 3%;
     display: flex;
-    padding: 0 5%;
+    padding: 5% 5% 0;
     justify-content: space-between;
     height: max-content;
     border-bottom: 0.5px solid rgb(209, 209, 209);
@@ -376,4 +374,9 @@
   .search{width: 5%;}
   .keyboard{width: max-content;}
   .last{width: 40%;}
+ }
+
+ .admin{
+  color:#065fd4 !important;
+  margin-right: 4px;
  }

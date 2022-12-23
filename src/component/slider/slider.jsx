@@ -9,7 +9,8 @@ export default function SimpleSlider(props) {
     swipeToSlide:true,
     speed: 500,
     slidesToShow: 16,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
+    
   }
   return (
     <Slider {...settings} className={styles.slider}>

@@ -12,7 +12,7 @@ import { open } from "../../redux/isOpen";
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState();
-  const [amount, setAmount] = useState(20);
+  const [amount, setAmount] = useState(24);
 
   useEffect(() => {
     setLoading(true)
@@ -24,7 +24,6 @@ function Home() {
     })
   }, [amount]);
 
-  console.log(data)
   const handleView = (v) => {
     let view = v;
     let newView = "";
@@ -64,8 +63,8 @@ function Home() {
   }, []);
 
   const dispatch = useDispatch();
-  const isOpen = useSelector((state) => state.isOpen);
-
+  const isOpen = useSelector(state => state.isOpen);
+console.log(data)
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth < 1480) dispatch(open(false));
@@ -82,7 +81,12 @@ function Home() {
   });
 
   const [nav, setNav] = useState(false);
+const handleDuration=(v)=>{
+  const moment = require("moment");
 
+const d = moment.duration(v);
+  return `${d.hours()}:${d.minutes()}:${d.seconds()}`
+}
   return (
     <>
       <Catetory />
@@ -106,6 +110,7 @@ function Home() {
                 setLoad={setLoading}
                 Channel={value.snippet.channelId}
                 idd={value.id}
+                duration={handleDuration(value.contentDetails.duration)}
               />
             </div>
           );
