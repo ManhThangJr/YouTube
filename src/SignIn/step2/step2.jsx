@@ -16,7 +16,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import ErrorIcon from "@mui/icons-material/Error";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import avatar from '../../img/avatar.jpg'
 import { setPass } from "../../component/redux/pass";
 import Avatar from "@mui/material/Avatar";
 
@@ -71,8 +71,8 @@ function Step2() {
           }}
         >
           <Avatar
-            src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/316818268_2015087768686897_7772912743124485993_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mUEbzEf2_-gAX_7RD1-&tn=4BspnJhtSI7rhD_H&_nc_ht=scontent.fhan17-1.fna&oh=00_AfASqOVkA2UIXghYvV2V3uuF0KZiI1FyVqSKkGZuP59Tmw&oe=639D0DC2"
-            sx={{ marginRight: "5px",width:24,height:24 }}
+            src={avatar}
+            sx={{ marginRight: "5px",width:30,height:30 }}
           />
           {account}
         </Box>

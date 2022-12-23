@@ -35,6 +35,7 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import { setPass } from "../redux/pass";
+import avatar from '../../img/avatar.jpg'
 
 function Header() {
   const [check, setCheck] = useState(false);
@@ -322,7 +323,7 @@ function Header() {
                   <span className={styles.acount}>
                     <img
                       style={{ width: 36, height: 36, borderRadius: "50%" }}
-                      src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/316818268_2015087768686897_7772912743124485993_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mUEbzEf2_-gAX_7RD1-&tn=4BspnJhtSI7rhD_H&_nc_ht=scontent.fhan17-1.fna&oh=00_AfASqOVkA2UIXghYvV2V3uuF0KZiI1FyVqSKkGZuP59Tmw&oe=639D0DC2"
+                      src={avatar}
                     ></img>
                   </span>
                 </Tooltip>
@@ -331,7 +332,7 @@ function Header() {
                     <div>
                       <img
                         style={{ width: 41, height: 41, borderRadius: "50%" }}
-                        src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/316818268_2015087768686897_7772912743124485993_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=mUEbzEf2_-gAX_7RD1-&tn=4BspnJhtSI7rhD_H&_nc_ht=scontent.fhan17-1.fna&oh=00_AfASqOVkA2UIXghYvV2V3uuF0KZiI1FyVqSKkGZuP59Tmw&oe=639D0DC2"
+                        src={avatar}
                       />
                       <div>
                         <p>Thắng Trần Mạnh</p>
@@ -457,6 +458,7 @@ function Header() {
                 display: "flex",
                 alignItems: "center",
                 marginRight: "2%",
+                minWidth:186
               }}
             >
               <Tooltip title="cài dặt">
@@ -485,6 +487,8 @@ function Header() {
             textAlign: "center",
             alignItems: "center",
             margin: "0 auto",
+            position:'fixed',
+            zIndex:'99999'
           }}
         >
           <BiArrowBack

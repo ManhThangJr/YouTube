@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./detail.module.scss";
 import ThumbUpOffAlt from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAlt from "@mui/icons-material/ThumbDownOffAlt";
+import avatar from '../../img/avatar.jpg'
 
 function Comment() {
   const [data, setData] = useState();
@@ -29,14 +30,14 @@ function Comment() {
       </div>
 
       <div className={styles.middle}>
-        <div></div>
+        <div><img style={{width:'40px',height:'40px',borderRadius:'50%'}}src={avatar} alt="" /></div>
         <input type="text" placeholder="Viết bình luận" />
       </div>
 
       {data?.map((value, index) => {
         return (
           <div className={styles.comment} key={index}>
-            <div></div>
+            <div><img style={{width:'100%',borderRadius:'50%'}} src={value.snippet.topLevelComment.snippet.authorProfileImageUrl}></img></div>
             <div>
               <div>
                 <span className={styles.nameComment}>

@@ -111,3 +111,29 @@
   padding: 3px 6px;
   border-radius: 9px;
 }
+
+@media only screen and (max-width: 400px) {
+  .channel {
+     font-size: 90%;
+     
+   }
+ }
+@media only screen and (max-width: 387px) {
+  .channel {
+     font-size: 80%;
+     
+   }
+ }
+@media only screen and (max-width: 357px) {
+  .channel p:nth-of-type(2){
+     font-size: 80%;
+     display: flex !important;
+     flex-direction: column !important;
+     >span:nth-child(2){
+      display: none;
+     }
+     >span{
+      margin: 2px 0;
+     }
+   }
+ }

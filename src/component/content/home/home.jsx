@@ -66,6 +66,10 @@ function Home() {
   const isOpen = useSelector(state => state.isOpen);
 console.log(data)
   useEffect(() => {
+    if (window.innerWidth < 1480) dispatch(open(false));
+      if (window.innerWidth > 1480) dispatch(open(true));
+      if (window.innerWidth < 760) setNav(true);
+      if (window.innerWidth > 760) setNav(false);
     window.addEventListener("resize", () => {
       if (window.innerWidth < 1480) dispatch(open(false));
       if (window.innerWidth > 1480) dispatch(open(true));

@@ -5,13 +5,14 @@ import axios from "axios";
 import Card from "../component/content/card/card";
 import Catetory from "../component/catetory/catetory";
 import Navbar from "../component/navbar/nav";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { open } from "../component/redux/isOpen";
 function Theme() {
   const { id } = useParams();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const isOpen = useSelector((state) => state.isOpen);
+  const dispatch=useDispatch()
   useEffect(() => {
     setLoading(true);
     axios
@@ -76,12 +77,25 @@ function Theme() {
   const d = moment.duration(v);
     return `${d.hours()}:${d.minutes()}:${d.seconds()}`
   }
+  const [nav, setNav] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 1480) dispatch(open(false));
+      if (window.innerWidth > 1480) dispatch(open(true));
+      if (window.innerWidth < 760) setNav(true);
+      if (window.innerWidth > 760) setNav(false);
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1480) dispatch(open(false));
+      if (window.innerWidth > 1480) dispatch(open(true));
+      if (window.innerWidth < 760) setNav(true);
+      if (window.innerWidth > 760) setNav(false);
+    });
+  }, []);
 
 
   return (
     <>
       <Catetory />
-      <Navbar />
+      {!nav ? <Navbar /> : null}
       <div className={isOpen.value ? styles.container : styles.abc}>
         {data?.map((value, i) => {
           return (
