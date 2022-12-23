@@ -3,8 +3,10 @@ import styles from "./search.module.scss";
 import {  useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import Catetory from "../component/catetory/catetory";
-import Nav from "../component/navbar/nav";
+import Navbar from "../component/navbar/nav";
 import { TiTickOutline } from "react-icons/ti";
+import { useDispatch } from "react-redux";
+import { open } from "../component/redux/isOpen";
 
 function Search() {
 
@@ -51,10 +53,24 @@ function Search() {
   }, []);
 
   const nav = useNavigate();
+  const [nav1, setNav] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 1480) dispatch(open(false));
+      if (window.innerWidth > 1480) dispatch(open(true));
+      if (window.innerWidth < 760) setNav(true);
+      if (window.innerWidth > 760) setNav(false);
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1480) dispatch(open(false));
+      if (window.innerWidth > 1480) dispatch(open(true));
+      if (window.innerWidth < 760) setNav(true);
+      if (window.innerWidth > 760) setNav(false);
+    });
+  }, []);
+  const dispatch=useDispatch()
   return (
     <>
       <Catetory />
-      <Nav />
+      {!nav1 ? <Navbar /> : null}
       <div className={styles.container}>
         {data?.map((value, i) => {
           return (

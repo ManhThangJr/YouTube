@@ -503,6 +503,7 @@ function Header() {
                 className={styles.search2}
                 placeholder="Tìm kiếm"
                 list="list"
+                onChange={(e) => setQuery(e.target.value)}
               ></input>
               <span className={styles.keyboard2}>
                 <FaKeyboard />
@@ -510,7 +511,7 @@ function Header() {
             </div>
             <Tooltip title="Tìm kiếm">
               <span className={styles.searchIcon4}>
-                <SearchOutlined onClick={handleSearch} />
+                <SearchOutlined onClick={(e) => handleSearch(e)} />
               </span>
             </Tooltip>
             <Tooltip title="Tìm kiếm bằng giọng nói">
