@@ -6,8 +6,8 @@ import Slider from '../slider/slider'
 
 function Catetory() {
   const data = [
-    { name: "Việt Nam", id: "VN", open:false },
-    { name: "Hong Kong", id: "HK", open: true },
+    { name: "Việt Nam", id: "VN", open:true },
+    { name: "Hong Kong", id: "HK", open: false },
     { name: "Indonesia", id: "ID", open: false },
     { name: "Japan", id: "JP", open: false },
     { name: "Korea", id: "KR", open: false },

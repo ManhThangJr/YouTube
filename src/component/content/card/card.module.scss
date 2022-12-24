@@ -19,7 +19,7 @@
   font-size: 92%;
   color: rgb(75, 75, 75);
   line-height: 0.5 !important;
-  p{
+  p {
     display: flex;
     width: 100%;
     font-size: 90%;
@@ -47,47 +47,47 @@
 }
 
 .container {
-  margin-top:3%;
+  margin-top: 3%;
   position: relative;
-  transition: transform  0.1s ease-in-out ;
+  transition: transform 0.1s ease-in-out;
   max-height: 310px;
-  &:hover{ 
+  &:hover {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     z-index: 999;
     transform: scale(1.3);
-    border-radius:20% !important;
-    transition: transform 0.1s ease-in 1.5s ; 
+    border-radius: 20% !important;
+    transition: transform 0.1s ease-in 1.5s;
   }
 }
 
-.video{
-    height: 100%;
-    border:none;
-    border-bottom-left-radius: none;
-    border-bottom-right-radius: none;
+.video {
+  height: 100%;
+  border: none;
+  border-bottom-left-radius: none;
+  border-bottom-right-radius: none;
 }
 
-.avatar{
+.avatar {
   width: 50px;
   height: 50px;
-} 
+}
 
-.avt{
+.avt {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   cursor: pointer;
 }
 
-.card{
+.card {
   cursor: pointer;
-  border-radius: 15px !important; 
+  border-radius: 15px !important;
 }
 
-.move{
+.move {
   background-color: black;
   width: max-content;
-  position:absolute;
+  position: absolute;
   color: white;
   bottom: 36.9%;
   left: 53.5%;
@@ -96,17 +96,17 @@
   border-radius: 9px;
 }
 
-.btn:hover{
+.btn:hover {
   background-color: rgb(218, 218, 218) !important;
 }
-  
-.duration{
+
+.duration {
   background-color: black;
   width: max-content;
-  position:absolute;
+  position: absolute;
   color: white;
   bottom: 36.9%;
-  right:2%;
+  right: 2%;
   font-size: 78%;
   padding: 3px 6px;
   border-radius: 9px;
@@ -114,26 +114,42 @@
 
 @media only screen and (max-width: 400px) {
   .channel {
-     font-size: 90%;
-     
-   }
- }
+    font-size: 90%;
+  }
+}
 @media only screen and (max-width: 387px) {
   .channel {
-     font-size: 80%;
-     
-   }
- }
-@media only screen and (max-width: 357px) {
-  .channel p:nth-of-type(2){
-     font-size: 80%;
-     display: flex !important;
-     flex-direction: column !important;
-     >span:nth-child(2){
-      display: none;
-     }
-     >span{
-      margin: 2px 0;
-     }
-   }
- }
+    font-size: 80%;
+  }
+}
+
+
+@media only screen and (max-width: 300px) {
+  .duration {
+    bottom: 46%;
+    font-size: 72% ;
+  }
+  .avt{
+    width: 30px;
+    height: 30px;
+  }
+  .avatar{
+    width: max-content;
+  }
+  .title{
+    font-size: 80%;
+  }
+}
+@media only screen and (max-width: 280px) {
+  .duration {
+    bottom: 49%;
+    font-size: 70% ;
+  }
+}
+@media only screen and (max-width: 253px) {
+  .duration {
+    bottom: 51%;
+  }
+}
+
+

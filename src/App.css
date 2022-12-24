@@ -51,15 +51,36 @@ body {
     display: inline-block !important;
   }
 }
-
-#simple-popper{
-  z-index: 99999  ;
+@media only screen and (max-width: 300px) {
+  .slick-next::before,
+  .slick-prev::before {
+    display: none !important;
+  }
 }
 
-#btn{
-  color:#065fd4 !important;
+#simple-popper {
+  z-index: 99999;
+}
+
+#btn {
+  color: #065fd4 !important;
   font-size: 90% !important;
   font-weight: bold !important;
- border-color: rgb(218, 218, 218) !important;
- border-radius: 20px !important;
+  border-color: rgb(218, 218, 218) !important;
+  border-radius: 20px !important;
+}
+.MuiFormControlLabel-label {
+  color: #065fd4 !important;
+  font-weight: 700;
+}
+@media only screen and (max-width: 300px) {
+  .MuiFormControlLabel-label {
+    font-size: 94% !important;
+  }
+  .MuiCollapse-root {
+    font-size: 12px;
+  }
+}
+.progess_unbox__lu2ao{
+color: red !important;
 }

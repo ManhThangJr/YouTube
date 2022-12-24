@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./header.module.scss";
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
@@ -35,9 +35,12 @@ import MoreVert from "@mui/icons-material/MoreVert";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import { setPass } from "../redux/pass";
-import avatar from '../../img/avatar.jpg'
+import avatar from "../../img/avatar.jpg";
+import Progess from '../../MUI/progess'
 
 function Header() {
+
+  const [checkProgess,setCheckProgess]=useState(true)
   const [check, setCheck] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
@@ -103,36 +106,29 @@ function Header() {
     if (query) {
       const search_query = query;
       setSearch({ search_query });
+      setCheckProgess(true)
       nav(`result?search_query=${query}`);
     }
   };
 
   const handleGohome = () => {
+    setCheckProgess(true)
     nav("/");
   };
 
   const [state, setState] = React.useState({
     left: false,
   });
-
-  const toggleDrawer = (anchor, open) => (event) => {
+  const toggleDrawer = (anchor, open) => () => {
     if (window.innerWidth > 1300) dispatch(isOpen(!isOpen));
-    if (
-      event &&
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-    setState({ ...state, ["left"]: open });
+    setState({ ...state, ["left"]: (open===true?false:true) });
+    console.log('1')
   };
+ 
   function SwipeableTemporaryDrawer() {
     const list = (anchor) => (
       <Box
         sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-        role="presentation"
-        onClick={toggleDrawer(anchor, false)}
-        onKeyDown={toggleDrawer(anchor, false)}
       >
         <List>
           <div className={styles.first2}>
@@ -147,7 +143,7 @@ function Header() {
               />
             </div>
           </div>
-          <Nav />
+          <Nav state={state} setState={setState} toggle={toggleDrawer('left',true)}/>
         </List>
       </Box>
     );
@@ -156,13 +152,13 @@ function Header() {
       <div>
         {["left"].map((anchor) => (
           <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)}>
+            <Button onClick={toggleDrawer(anchor, state.left)}>
               <MenuOutlined style={{ color: "black" }} />
             </Button>
             <SwipeableDrawer
               anchor={anchor}
               open={state[anchor]}
-              onClose={toggleDrawer(anchor, false)}
+              onClose={toggleDrawer(anchor, state.left)}
               onOpen={toggleDrawer(anchor, true)}
             >
               {list(anchor)}
@@ -174,7 +170,7 @@ function Header() {
   }
 
   const [isCheck, setIsCheck] = useState(false);
-  window.addEventListener("resize", () => {
+  useEffect(() => {
     if (window.innerWidth < 1300) setIsCheck(true);
     if (window.innerWidth > 1300) setIsCheck(false);
     if (window.innerWidth > 560) {
@@ -182,14 +178,25 @@ function Header() {
       setHeader(false);
     }
     if (window.innerWidth < 560) setShow(true);
-  });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 1300) setIsCheck(true);
+      if (window.innerWidth > 1300) setIsCheck(false);
+      if (window.innerWidth > 560) {
+        setShow(false);
+        setHeader(false);
+      }
+      if (window.innerWidth < 560) setShow(true);
+    });
+  }, []);
 
   const [show, setShow] = useState(false);
   const [header, setHeader] = useState(false);
 
   return (
     <>
+        <Progess  checkProgess={checkProgess} setCheckProgess={setCheckProgess}/>
       {!header ? (
+        
         <div className={styles.headerContainer}>
           <div className={styles.first}>
             <span className={styles.menuIcon}>
@@ -328,7 +335,10 @@ function Header() {
                   </span>
                 </Tooltip>
                 <Popper id={id3} open={open3} anchorEl={anchorEl3}>
-                  <Box className={styles.modal3}>
+                  <Box
+                    className={styles.modal3}
+                    onClick={() => setAnchorEl3(null)}
+                  >
                     <div>
                       <img
                         style={{ width: 41, height: 41, borderRadius: "50%" }}
@@ -368,8 +378,6 @@ function Header() {
                       </div>
                       <div
                         onClick={(e) => {
-                          e.stopPropagation();
-                          setAnchorEl3(null);
                           dispatch(setPass(false));
                           nav(`/`);
                         }}
@@ -458,7 +466,7 @@ function Header() {
                 display: "flex",
                 alignItems: "center",
                 marginRight: "2%",
-                minWidth:186
+                minWidth: 186,
               }}
             >
               <Tooltip title="cài dặt">
@@ -480,6 +488,7 @@ function Header() {
         </div>
       ) : (
         <div
+        className={styles.container2}
           style={{
             width: "90%",
             height: "60px",
@@ -487,12 +496,12 @@ function Header() {
             textAlign: "center",
             alignItems: "center",
             margin: "0 auto",
-            position:'fixed',
-            zIndex:'99999'
+            position: "fixed",
+            zIndex: "99999",
           }}
         >
           <BiArrowBack
-            style={{ fontSize: "140%", width: "10%" }}
+            style={{ fontSize: "130%", width: "10%" }}
             onClick={() => setHeader(false)}
           />
           <div className={styles.wrapC2}>

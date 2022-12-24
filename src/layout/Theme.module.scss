@@ -76,3 +76,16 @@
     }
    
    }
+ @media only screen and (max-width: 300px) {
+    .abc{
+     width: 96%;
+     margin: 0 auto;
+     flex-direction: column;
+     align-items: center;
+     margin-top: 9%;
+    }
+    .link2{
+     width:96%;
+    }
+   
+   }

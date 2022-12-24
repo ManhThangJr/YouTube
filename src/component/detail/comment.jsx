@@ -47,7 +47,7 @@ function Comment() {
                   {value.snippet.topLevelComment.snippet.publishedAt}
                 </span>
               </div>
-              <div>{value.snippet.topLevelComment.snippet.textDisplay}</div>
+              <div className={styles.Comment}>{value.snippet.topLevelComment.snippet.textDisplay}</div>
 
               <div>
                 <span>

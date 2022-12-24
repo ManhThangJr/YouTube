@@ -93,3 +93,21 @@
   background-color: rgb(230, 230, 230);
   color: rgb(87, 87, 87);
 }
+
+@media only screen and (max-width: 400px) {
+  .container{
+    top:160px;
+    left: 0;
+    width: 100%;
+  }
+  .wrapper{
+    flex-direction: column;
+    width: 90% !important;
+    margin: 0 auto;
+  }
+  .imgs{width: 90% !important;}
+  .right{display: none;}
+.img{
+  width: 100%;
+}
+ }

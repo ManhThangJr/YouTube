@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./card.module.scss";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
@@ -12,7 +12,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { BsClock } from "react-icons/bs";
 import { CgPlayList } from "react-icons/cg";
-import { SiMomenteo } from "react-icons/si";
+
 
 export default function Media({
   img,

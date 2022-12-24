@@ -9,7 +9,7 @@ export default function SimpleSlider(props) {
     swipeToSlide:true,
     speed: 500,
     slidesToShow: 16,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     
   }
   return (
