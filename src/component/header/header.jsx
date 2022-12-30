@@ -246,6 +246,12 @@ function Header() {
                     setShowSearch(true);
                   }}
                   onBlur={() => setShowSearch(false)}
+                  onKeyDown={(e)=>{
+                    if(e.key==='Enter'){
+                      e.preventDefault()
+                      handleSearch(e)
+                    }
+                  }}
                 ></input>
                 <span className={styles.keyboard}>
                   <FaKeyboard />
