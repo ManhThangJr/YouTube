@@ -19,8 +19,8 @@ function Home() {
     if (categories?.category) {
       setLoading(true);
       axios
-        .get(
-          `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD-v4aovGIGZ3M1F2BDtgsbhifI3rnOPgY&part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=${categories.category}&maxResults=${amount}`
+      .get(
+        `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD-v4aovGIGZ3M1F2BDtgsbhifI3rnOPgY&part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=${categories.category}&maxResults=${amount}`
         )
         .then((res) => {
           setData(res.data.items) 
@@ -28,7 +28,8 @@ function Home() {
         .then(() => {
           setLoading(false);
         });
-    }
+      }
+      window.scrollTo(0,0)
   }, [categories?.category,amount]);
 
   const handleView = (v) => {

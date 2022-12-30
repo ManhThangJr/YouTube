@@ -52,7 +52,7 @@ body {
     display: inline-block !important;
   }
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 330px) {
   .slick-next::before,
   .slick-prev::before {
     display: none !important;
@@ -74,7 +74,7 @@ body {
   color: #065fd4 !important;
   font-weight: 700;
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 330px) {
   .MuiFormControlLabel-label {
     font-size: 94% !important;
   }

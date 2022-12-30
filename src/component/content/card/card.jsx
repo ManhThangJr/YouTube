@@ -46,7 +46,7 @@ export default function Media({
     clearTimeout(ref.current);
   };
 
-  const handleChannel = () => {
+  const handleChannel = (e) => {
     window.location.replace(`https://www.youtube.com/channel/${Channel}`);
   };
 
@@ -138,7 +138,7 @@ export default function Media({
                 height={40}
               />
             ) : (
-              <div className={styles.avatar} onClick={handleChannel}>
+              <div className={styles.avatar} onClick={(e)=>handleChannel()}>
                 <img src={avatar} className={styles.avt} />
               </div>
             )}

@@ -496,6 +496,7 @@ function Header() {
                 alignItems: "center",
                 marginRight: "2%",
                 minWidth: 186,
+                width:'25%',
                 flexGrow: 0.5,
                 justifyContent: "flex-end",
               }}

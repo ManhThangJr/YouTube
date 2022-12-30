@@ -19,7 +19,7 @@ import Collapse from "@mui/material/Collapse";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function Detail() {
-  const nav=useNavigate()
+  const nav = useNavigate();
   const { id } = useParams();
   const [data, setData] = useState();
   const [hidden, setHidden] = useState(true);
@@ -28,7 +28,7 @@ function Detail() {
 
   const handleChange = () => {
     setChecked((prev) => !prev);
-    setHidden(prev=>!prev)
+    setHidden((prev) => !prev);
   };
 
   useEffect(() => {
@@ -41,11 +41,11 @@ function Detail() {
       )
       .then((res) => {
         setInfo(res.data.items);
-        document.title=res.data.items[0]?.snippet?.title
+        document.title = res.data.items[0]?.snippet?.title;
       });
-      window.scrollTo(0 ,0)
-    }, [id]);
-    console.log(data)
+    window.scrollTo(0, 0);
+  }, [id]);
+  console.log(data);
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -85,15 +85,19 @@ function Detail() {
           <h3>{info[0]?.snippet.localized.title}</h3>
           <div className={styles.containerCard}>
             <div className={styles.card}>
-              <div className={styles.avatar}>
+              <div className={styles.avatar} onClick={() =>
+                    window.location.replace(
+                      `https://www.youtube.com/channel/${info[0]?.snippet.channelId}`
+                    )
+                  }>
                 <img
-                  style={{ borderRadius: "50%", width: "100%", height: "100%" }}
+                  style={{ borderRadius: "50%", width: "100%", height: "100%",cursor:'pointer' }}
                   src={info[0]?.snippet.thumbnails.default.url}
                   alt=""
                 />
               </div>
               <div>
-                <h4>{info[0]?.snippet.channelTitle}</h4>
+                <h4>{info[0]?.snippet.channelTitle}a</h4>
                 <p>dang ki</p>
               </div>
               <button className={styles.btn}>Đăng Kí</button>
@@ -121,24 +125,32 @@ function Detail() {
             </div>
           </div>
 
-          <Box sx={{ height: "100%" }}  className={styles.description}>
+          <Box sx={{ height: "100%" }} className={styles.description}>
             <FormControlLabel
               control={<Switch checked={checked} onChange={handleChange} />}
-              label={hidden?'Hiện thêm':'Ẩn'}
-              sx={{fontSize:'80%'}}
+              label={hidden ? "Hiện thêm" : "Ẩn"}
+              sx={{ fontSize: "80%" }}
             />
-            <Collapse in={checked} collapsedSize={50} sx={{backgroundColor:'#eeeeee',backgroundImage: 'linear-gradient(#eeeeee, yellow)' }}>
-              <Paper sx={{backgroundColor:'#eeeeee',padding:'2%'}} elevation={2} >
-                <Box sx={{ width: "100%", height: "100%" }} >
-                  <div >
-                  {info[0]?.snippet.description}
-                  </div>
+            <Collapse
+              in={checked}
+              collapsedSize={50}
+              sx={{
+                backgroundColor: "#eeeeee",
+                backgroundImage: "linear-gradient(#eeeeee, yellow)",
+              }}
+            >
+              <Paper
+                sx={{ backgroundColor: "#eeeeee", padding: "2%" }}
+                elevation={2}
+              >
+                <Box sx={{ width: "100%", height: "100%" }}>
+                  <div>{info[0]?.snippet.description}</div>
                 </Box>
               </Paper>
             </Collapse>
           </Box>
 
-          <Comment id={id}/>
+          <Comment id={id} />
         </div>
       </div>
 
@@ -167,7 +179,11 @@ function Detail() {
         <div className={styles.videos}>
           {data?.map((value, index) => {
             return (
-              <div className={styles.item} key={index} onClick={()=>nav(`/detail/${value?.id}`)}>
+              <div
+                className={styles.item}
+                key={index}
+                onClick={() => nav(`/detail/${value?.id}`)}
+              >
                 <Card
                   img={value.snippet.thumbnails.default.url}
                   title={value.snippet.title}
