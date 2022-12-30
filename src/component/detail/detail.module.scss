@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   position: relative;
-  top:80px;
+  top: 80px;
 }
 
 .left {
@@ -29,10 +29,9 @@
   border-radius: 10px;
 }
 
-.cat{
-    background-color: #e4e4e4 !important;
-    color: #000000 !important;
-   
+.cat {
+  background-color: #e4e4e4 !important;
+  color: #000000 !important;
 }
 
 .catetory {
@@ -44,11 +43,7 @@
 
 .item {
   margin: 2% 0;
-  width: 80%;
   cursor: pointer;
-  &:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
 }
 
 .under {
@@ -100,7 +95,6 @@
     align-items: center;
     border-radius: 20px;
     margin-right: 10px;
-    
   }
 }
 
@@ -173,102 +167,110 @@
   }
 }
 
-.nameComment{
-    font-weight: bolder;
+.nameComment {
+  font-weight: bolder;
 }
 
-.time{
-    font-size: 90%;
-    color: #8a8a8a;
+.time {
+  font-size: 90%;
+  color: #8a8a8a;
 }
 
 @media only screen and (max-width: 432px) {
-  .catetory{display: none;}
- }
+  .catetory {
+    display: none;
+  }
+}
 @media only screen and (max-width: 1000px) {
-  .right{display: none;}
-  .left{
+  .right {
+    display: none;
+  }
+  .left {
     width: 98%;
     padding-right: 10px;
   }
- }
- @media only screen and (max-width: 1300px) {
-  .rightCard div:nth-child(4){
+}
+@media only screen and (max-width: 1300px) {
+  .rightCard div:nth-child(4) {
     display: none;
   }
- }
- @media only screen and (max-width: 750px) {
-  .rightCard div:nth-child(3){
+}
+@media only screen and (max-width: 750px) {
+  .rightCard div:nth-child(3) {
     display: none;
   }
- }
- @media only screen and (max-width: 570px) {
-  .rightCard div{
+}
+@media only screen and (max-width: 570px) {
+  .rightCard div {
     font-size: 80%;
   }
-  .iconn{
+  .iconn {
     font-size: 120% !important;
   }
-  .btn{
+  .btn {
     font-size: 90% !important;
-    .rightCard div:nth-child(2){
+    .rightCard div:nth-child(2) {
       padding: 0 1%;
     }
   }
- }
- @media only screen and (max-width: 500px) {
-  .containerCard{
+}
+@media only screen and (max-width: 500px) {
+  .containerCard {
     flex-direction: column;
   }
- }
- h3,h4{
+}
+h3,
+h4 {
   font-weight: bold;
- }
- .tag{
+}
+.tag {
   width: 50%;
-   font-family: "Roboto","Arial",sans-serif;
-   font-size: 1.4rem;
-   line-height: 2rem;
-   font-weight: 500;
-   overflow: hidden;
-   display: block;
-   max-height: 4rem;
-   -webkit-line-clamp: 1;
-   display: box;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   text-overflow: ellipsis;
-   white-space: normal;
- }
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: block;
+  max-height: 4rem;
+  -webkit-line-clamp: 1;
+  display: box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
 
- @media only screen and (max-width: 300px) {
-  
-  h3{
+@media only screen and (max-width: 300px) {
+  h3 {
     font-size: 90%;
   }
-  h4{font-size: 76%;}
-  .desciption{
+  h4 {
+    font-size: 76%;
+  }
+  .desciption {
     font-size: 80% !important;
   }
- .btn{
-  position: absolute;
-  left: 50%;
-  width: 65px !important;
-  height: 30px !important;
-  font-size: 80% !important;
- }
-  .amount{
+  .btn {
+    position: absolute;
+    left: 50%;
+    width: 65px !important;
+    height: 30px !important;
+    font-size: 80% !important;
+  }
+  .amount {
     width: 80%;
     font-size: 80%;
-    >div{width: 50%;}
+    > div {
+      width: 50%;
+    }
   }
-  .containerCard{
-    margin: 3% 0; 
+  .containerCard {
+    margin: 3% 0;
   }
- }
+}
 
- .Comment{
-  font-family: "Roboto","Arial",sans-serif;
+.Comment {
+  font-family: "Roboto", "Arial", sans-serif;
   font-size: 1rem;
   line-height: 2rem;
   font-weight: 500;
@@ -280,5 +282,4 @@
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   text-overflow: ellipsis;
- 
- }
+}
