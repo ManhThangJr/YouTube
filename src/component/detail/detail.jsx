@@ -43,6 +43,7 @@ function Detail() {
         setInfo(res.data.items);
         document.title=res.data.items[0]?.snippet?.title
       });
+      window.scrollTo(0 ,0)
     }, [id]);
     console.log(data)
   return (
