@@ -11,9 +11,14 @@
   z-index: 999;
   > div {
     width: 90%;
+    cursor: pointer;
     padding: 3%;
     display: flex;
     align-items: center;
+    &:hover{
+      background-color: rgb(243, 243, 243);
+      border-radius: 20px;
+    }
     > span {
       margin: 3% 10%;
     }

@@ -8,7 +8,7 @@ export default function SimpleSlider(props) {
   var settings = {
     swipeToSlide:true,
     speed: 500,
-    slidesToShow: 18,
+    slidesToShow: 10,
     slidesToScroll: 1,
   }
   return (
