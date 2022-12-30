@@ -32,7 +32,7 @@ function Detail() {
   };
 
   useEffect(() => {
-    fetching(10).then((res) => {
+    fetching(30).then((res) => {
       setData(res.items);
     });
     axios
