@@ -1,4 +1,5 @@
 .headerContainer {
+  top: 0;
   width: 100%;
   display: flex;
   background-color: rgb(255, 255, 255);
@@ -6,12 +7,10 @@
   justify-content: space-between;
   height: 70px;
   position: fixed;
-  z-index: 9999 ;
-  
+  z-index: 9999;
 }
 .img {
   height: 70px;
-  width: 95%;
   display: flex;
   align-items: center;
 }
@@ -29,156 +28,55 @@
 }
 .first {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-left: 15px;
+  padding-left: 15px;
+  width: 25%;
 }
 
 .wrapC {
   display: flex;
   align-items: center;
-  width: 40%;
+  justify-content: flex-end;
+  flex: 0  728px;
   height: 60%;
-  padding: 0 0.5%;
-  margin-left: 15%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .wrapC2 {
   display: flex;
   align-items: center;
   width: 100%;
-  padding:1%;
- 
+  justify-content: center;
+  height: 60%;
 }
 
 .wrap {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 0.4px solid rgb(221, 221, 221);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  width: 70%;
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-.wrap2 {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border: 0.4px solid rgb(221, 221, 221);
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  width: 70%;
+  padding-left: 20px;
+  flex: 0.8  ;
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
-
 }
-
-.wrap:hover {
-  border: 0.4px solid rgba(4, 4, 241, 0.445);
-}
-
-.search {
-  border: none;
-  text-decoration: none;
-  outline: none;
-  width: 90%;
-  height: 100%;
-  padding: 2% 0;
-}
-.search2 {
-  border: none;
-  text-decoration: none;
-  outline: none;
-  width: 90%;
-  height: 36px;
-  padding: 2% 0;
-}
-
-.searchIcon {
-  color: rgb(158, 158, 158);
-  width: 10%;
-  font-size: 130%;
-  cursor: pointer;
-}
-
-.searchIcon2 {
-  border: 0.4px solid rgb(221, 221, 221);
+.wrapp {
+  border: 0.4px solid #065fd4; 
   border-left: none;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  width: 8%;
-  align-items: center;
-  cursor: pointer;
-  font-size: 140%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0 ;
+  flex: 0.7996 ;
+  display: flex;
   height: 100%;
-  display: flex;
-  color: rgb(0, 0, 0);
-  background-color: rgb(247, 247, 247);
-  justify-content: center;
-}
-.searchIcon2:hover {
-  background-color: rgb(226, 226, 226);
-  font-size: 150%;
-}
-.searchIcon4 {
-  border: 0.4px solid rgb(221, 221, 221);
-  border-left: none;
-  border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-  width: 8%;
-  height: 38px !important;
   align-items: center;
-  cursor: pointer;
-  font-size: 140%;
-  height: 100%;
-  display: flex;
-  color: rgb(0, 0, 0);
-  background-color: rgb(247, 247, 247);
-  justify-content: center;
-}
-.searchIcon4:hover {
-  background-color: rgb(226, 226, 226);
-  font-size: 150%;
-}
 
-.mic {
-  background-color: rgba(241, 241, 241, 0.733);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 120%;
-  cursor: pointer;
-  margin-left: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.mic:hover {
-  background-color: rgba(219, 218, 218, 0.733);
-  font-size: 130%;
-}
-.mic2 {
-  background-color: rgba(241, 241, 241, 0.733);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 120%;
-  cursor: pointer;
-  margin-left: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mic2:hover {
-  background-color: rgba(219, 218, 218, 0.733);
-  font-size: 130%;
-}
-
 .last {
   display: flex;
   align-items: center;
   font-size: 140%;
-  width: 20%;
+  width: 25%;
   justify-content: end;
   margin-right: 2%;
   span {
@@ -197,6 +95,120 @@
     }
   }
 }
+.wrap2 {
+  
+  border: 0.4px solid #065fd4; 
+  border-left: none;
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  border: none;
+  text-decoration: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 2% 0 ; 
+}
+.search2 {
+  border: none;
+  text-decoration: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 2% 0;
+}
+
+.searchIcon {
+  color: rgb(158, 158, 158);
+  justify-content: center;
+  height: 100%;
+  font-size: 130%;
+  cursor: pointer;
+  flex-grow: 0.05;
+  border: 0.4px solid #065fd4; 
+  border-right:none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display:flex;
+  align-items: center;
+}
+
+.searchIcon2 {
+  border: 0.4px solid rgb(221, 221, 221);
+  border-left: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 50px;
+  align-items: center;
+  cursor: pointer;
+  font-size: 140%;
+  height: 100%;
+  display: flex;
+  color: rgb(0, 0, 0);
+  background-color: rgb(247, 247, 247);
+  justify-content: center;
+  &:hover {
+    background-color: rgb(226, 226, 226);
+  }
+}
+.searchIcon4 {
+  border: 0.4px solid rgb(221, 221, 221);
+  border-left: none;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 8%;
+  height: 38px !important;
+  align-items: center;
+  cursor: pointer;
+  font-size: 140%;
+  height: 100% !important;
+  display: flex;
+  color: rgb(0, 0, 0);
+  background-color: rgb(247, 247, 247);
+  justify-content: center;
+}
+.searchIcon4:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+.mic {
+  background-color: rgba(241, 241, 241, 0.733);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 120%;
+  cursor: pointer;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: rgba(219, 218, 218, 0.733);
+  }
+}
+.mic2 {
+  background-color: rgba(241, 241, 241, 0.733);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 120%;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mic2:hover {
+  background-color: rgba(219, 218, 218, 0.733);
+  font-size: 130%;
+}
+
+
 
 .menu {
   cursor: pointer;
@@ -207,14 +219,14 @@
 .keyboard {
   display: flex;
   align-items: center;
-  width: 7%;
+  width: 30px;
   font-size: 125%;
   color: rgb(95, 95, 95);
 }
 .keyboard2 {
   display: flex;
   align-items: center;
-  width: 7%;
+  width: 30px;
   font-size: 125%;
   color: rgb(95, 95, 95);
 }
@@ -349,53 +361,81 @@
   }
 }
 
-.searchIcon3{
- width: 40%;
- font-size: 140%;
- text-align: end;
+.searchIcon3 {
+  width: 40%;
+  font-size: 140%;
+  text-align: end;
 }
 @media only screen and (max-width: 1200px) {
-  .searchIcon,.keyboard{
+  .searchIcon,
+  .keyboard {
     width: 30px;
   }
-  .searchIcon2{
+  .searchIcon2 {
     width: 40px;
   }
- 
- }
+}
 @media only screen and (max-width: 700px) {
-  .search{width: 50%;}
- }
+  .search {
+    width: 50%;
+  }
+}
 @media only screen and (max-width: 660px) {
-  .search{width: 20%;}
- }
+  .search {
+    width: 20%;
+  }
+}
 @media only screen and (max-width: 626px) {
-  .search{width: 15%;}
-  .keyboard{width: max-content;}
- }
+  .search {
+    width: 15%;
+  }
+  .keyboard {
+    width: max-content;
+  }
+}
 @media only screen and (max-width: 560px) {
-  .search{width: 5%;}
-  .keyboard{width: max-content;}
-  .last{width: 40%;}
- }
+  .search {
+    width: 5%;
+  }
+  .keyboard {
+    width: max-content;
+  }
+  .last {
+    width: 40%;
+  }
+}
 
- .admin{
-  color:#065fd4 !important;
+.admin {
+  color: #065fd4 !important;
   margin-right: 4px;
- }
- @media only screen and (max-width: 300px) {
-  .img{display:none}
-  .searchIcon4{
+}
+@media only screen and (max-width: 440px) {
+  .img img{
+  height: 52% ;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .img {
+  display: none;
+  }
+}
+@media only screen and (max-width: 300px) {
+  
+  .searchIcon4 {
     font-size: 90%;
   }
-  .mic2{
-   font-size: 90%;
-   margin-left: 4%;
+  .mic2 {
+    font-size: 90%;
+    margin-left: 4%;
   }
-  .searchIcon{font-size: 90%;}
-  .wrapC2{width: 100% ;}
-  .container2{
+  .searchIcon {
+    font-size: 90%;
+  }
+  .wrapC2 {
+    width: 100%;
+  }
+  .container2 {
     width: 100% !important;
+    top: 0 !important;
   }
- 
- }
+}

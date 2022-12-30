@@ -16,11 +16,10 @@ function Comment() {
         `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet,replies&videoId=${id}&key=AIzaSyAzsRyOF9xYl7Y4pt5MaS-Xz2XcDbwut6U`
       )
       .then((res) => {
-        console.log(res);
         setData(res.data.items);
         setAmount(res.data.items.length);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div className={styles.containerComment}>

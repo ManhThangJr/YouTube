@@ -8,6 +8,7 @@
   align-items: center;
   top: 80px;
   bottom: 0;
+  z-index: 999;
   > div {
     width: 90%;
     padding: 3%;
@@ -100,9 +101,10 @@ hr {
 .wraper {
   width: 64px;
   position: fixed;
-  margin-top: 80px;
+  
   background-color: white;
-  height: 1500px;
+  top: 65px;
+  bottom: 0;
 }
 
 .wrap {

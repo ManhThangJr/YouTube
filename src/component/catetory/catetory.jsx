@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./catetory.module.scss";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Slider from '../slider/slider'
+import Category  from "../../useContext/category";
 
 function Catetory() {
   const data = [
@@ -29,43 +29,39 @@ function Catetory() {
   ];
   const isOpen = useSelector((state) => state.isOpen);
   const [check, setCheck] = useState([...data]);
-  const nav = useNavigate();
-  const handleClick = (index) => {
-    console.log(index)
-    nav(`/country/${data[index]?.id}`);
-    let newData=[...check]
-    newData[index].open=! newData[index].open
-    newData.map((v,i)=>{
-      if (i!=index) v.open=false
-    })
-    setCheck(newData)
-  };
- 
+  const cate=useContext(Category)
+
+    const handleClick = (index) => {
+      let newData=[...check]
+      newData[index].open=! newData[index].open
+      newData.map((v,i)=>{
+        if (i!=index) v.open=false
+      })
+      setCheck(newData)
+      cate?.setCategory(data[index].id)
+    };
+ useEffect(()=>{
+  let newData=[...check]
+  newData.map((v)=>{
+    if (v.id===cate?.category) {
+      v.open=true}
+      else v.open=false
+  })
+  setCheck(newData)
+ },[cate?.category])
   function Render({ item, index, open }) {
     return (
       <>
-        {open ? (
           <div
-            className={styles.catetory2}
+            className={open?styles.catetory2:styles.catetory}
             key={index}
             onClick={() => handleClick(index)}
           >
             {item.name}
           </div>
-        ) : (
-          <div
-            className={styles.catetory}
-            key={index}
-            onClick={() => handleClick(index)}
-          >
-            {item.name}
-          </div>
-        )}
       </>
     );
   }
-
-
 
   return (
     <>

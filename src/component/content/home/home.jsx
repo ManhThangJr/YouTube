@@ -1,28 +1,35 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useCallback, useState, useContext } from "react";
 import styles from "./home.module.scss";
 import Card from "../card/card";
 import { fetching } from "../../../fetching";
-import { useState } from "react";
-import { useCallback } from "react";
 import Catetory from "../../catetory/catetory";
 import Navbar from "../../navbar/nav";
 import { useSelector, useDispatch } from "react-redux";
 import { open } from "../../redux/isOpen";
+import axios from "axios";
+import Category from "../../../useContext/category";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState();
   const [amount, setAmount] = useState(24);
+  const categories = useContext(Category);
 
   useEffect(() => {
-    setLoading(true)
-    fetching(amount).then((res) => {
-      setData(res.items);
-    })
-    .then(()=>{
-      setLoading(false)
-    })
-  }, [amount]);
+    if (categories?.category) {
+      setLoading(true);
+      axios
+        .get(
+          `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyD-v4aovGIGZ3M1F2BDtgsbhifI3rnOPgY&part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=${categories.category}&maxResults=${amount}`
+        )
+        .then((res) => {
+          setData(res.data.items) 
+        })
+        .then(() => {
+          setLoading(false);
+        });
+    }
+  }, [categories?.category,amount]);
 
   const handleView = (v) => {
     let view = v;
@@ -37,16 +44,14 @@ function Home() {
   };
 
   const handleTime = useCallback((v) => {
-    let time = v;
-    let newTime =
-      (Date.parse(time) - Date.parse(new Date(v.slice(0, 10)))) / 100 / 60 / 60;
-      let day = 0;
-      let check = 0;
+    let newTime = (Date.now() - Date.parse(new Date(v))) / 1000 / 60 / 60;
+    let day = 0;
+    let check = 0;
     let month = 0;
     let year = 0;
     if (newTime > 24) {
       day = Math.round(newTime / 24);
-      check+=1
+      check += 1;
       if (day > 30) {
         month = Math.round(day / 30);
         check += 1;
@@ -63,14 +68,13 @@ function Home() {
   }, []);
 
   const dispatch = useDispatch();
-  const isOpen = useSelector(state => state.isOpen);
+  const isOpen = useSelector((state) => state.isOpen);
 
   useEffect(() => {
-    
     if (window.innerWidth < 1480) dispatch(open(false));
-      if (window.innerWidth > 1480) dispatch(open(true));
-      if (window.innerWidth < 760) setNav(true);
-      if (window.innerWidth > 760) setNav(false);
+    if (window.innerWidth > 1480) dispatch(open(true));
+    if (window.innerWidth < 760) setNav(true);
+    if (window.innerWidth > 760) setNav(false);
     window.addEventListener("resize", () => {
       if (window.innerWidth < 1480) dispatch(open(false));
       if (window.innerWidth > 1480) dispatch(open(true));
@@ -82,16 +86,16 @@ function Home() {
   window.addEventListener("scroll", (event) => {
     const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
     if (clientHeight + scrollTop >= scrollHeight)
-      setAmount((prev) => (prev + 10));
+      setAmount((prev) => prev + 10);
   });
 
   const [nav, setNav] = useState(false);
-const handleDuration=(v)=>{
-  const moment = require("moment");
+  const handleDuration = (v) => {
+    const moment = require("moment");
 
-const d = moment.duration(v);
-  return `${d.hours()}:${d.minutes()}:${d.seconds()}`
-}
+    const d = moment.duration(v);
+    return `${d.hours()}:${d.minutes()}:${d.seconds()}`;
+  };
   return (
     <>
       <Catetory />

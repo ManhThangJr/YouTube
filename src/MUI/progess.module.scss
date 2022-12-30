@@ -1,7 +1,13 @@
 .unbox{
     width: 100%;
+    position: fixed;
+    z-index: 9999999;
+    top:0;
  display: none;
 }
 .box{
     width: 100%;
+    top:0;
+    position: fixed;
+    z-index: 9999999;
 }

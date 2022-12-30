@@ -44,6 +44,11 @@
 
 .item {
   margin: 2% 0;
+  width: 80%;
+  cursor: pointer;
+  &:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 }
 
 .under {
@@ -220,6 +225,7 @@
   font-weight: bold;
  }
  .tag{
+  width: 50%;
    font-family: "Roboto","Arial",sans-serif;
    font-size: 1.4rem;
    line-height: 2rem;
@@ -227,7 +233,7 @@
    overflow: hidden;
    display: block;
    max-height: 4rem;
-   -webkit-line-clamp: 2;
+   -webkit-line-clamp: 1;
    display: box;
    display: -webkit-box;
    -webkit-box-orient: vertical;

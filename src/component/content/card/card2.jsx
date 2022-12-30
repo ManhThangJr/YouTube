@@ -10,7 +10,6 @@ import styles from './card.module.scss'
 
 export default function MediaControlCard({title,channel,img}) {
   const theme = useTheme();
-
   return (
     <Card sx={{ display: 'flex',width:'80%', boxShadow:'none',borderRadius:'10px',height:'100px' }}>
       <CardMedia
@@ -19,8 +18,8 @@ export default function MediaControlCard({title,channel,img}) {
         image={img}
         alt="Live from space album cover"
       />
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent sx={{ flex: '1 0 auto' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', }}>
+        <CardContent sx={{ flex: '1 0 auto',width:'100%' }}>
           <Typography component="div" sx={{fontSize:'90%',fontWeight:'bolder',color:'#383838'}} className={styles.title}>
            {title}
           </Typography>

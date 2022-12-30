@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styles from "./nav.module.scss";
 import { BsFillHouseDoorFill, BsClockHistory } from "react-icons/bs";
 import { MdShortcut } from "react-icons/md";
@@ -6,6 +6,7 @@ import { FiYoutube } from "react-icons/fi";
 import { SiYoutubegaming } from "react-icons/si";
 import { RxCounterClockwiseClock } from "react-icons/rx";
 import { BiLike } from "react-icons/bi";
+import  Category  from "../../useContext/category";
 
 import {
   FcMusic,
@@ -40,6 +41,7 @@ function Nav({state,setState,toggle}) {
     { icon: <FcNews className={styles.icon} />, title: "Tin tức" },
   ];
   const nav=useNavigate()
+  const cate=useContext(Category)
   return (
     <>
       
@@ -48,7 +50,7 @@ function Nav({state,setState,toggle}) {
             return (
               <div key={index} onClick={()=>{
                toggle()
-               nav('/')
+               cate?.setCategory('VN')
               }}>
                 {item.icon}
                 <span>{item.title}</span>

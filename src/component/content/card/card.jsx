@@ -13,7 +13,6 @@ import Button from "@mui/material/Button";
 import { BsClock } from "react-icons/bs";
 import { CgPlayList } from "react-icons/cg";
 
-
 export default function Media({
   img,
   avatar,
@@ -53,7 +52,7 @@ export default function Media({
 
   const [more, setMore] = useState(false);
 
-  const Video = () => { 
+  const Video = () => {
     return (
       <div style={{ width: "100%", height: "200px" }}>
         <iframe
@@ -99,19 +98,28 @@ export default function Media({
               variant="rectangular"
             />
           ) : (
-            <CardMedia
-              ref={ref}
-              onMouseLeave={handleOut}
-              onMouseOver={handlePlay}
-              sx={{
-                borderBottomLeftRadius: "15px",
-                borderBottomRightRadius: "15px",
-              }}
-              component="img"
-              image={img}
-              alt="Paella dish"
-              className={styles.img}
-            />
+            <div style={{position:'relative'}}>
+              <CardMedia
+                ref={ref}
+                onMouseLeave={handleOut}
+                onMouseOver={handlePlay}
+                sx={{
+                  borderBottomLeftRadius: "15px",
+                  borderBottomRightRadius: "15px",
+                }}
+                component="img"
+                image={img}
+                alt="Paella dish"
+                className={styles.img}
+              ></CardMedia>
+              {!loading ? (
+                dura ? (
+                  <div className={styles.duration}>{duration}</div>
+                ) : move ? (
+                  <div className={styles.move}>Tiếp tục di chuột để phát</div>
+                ) : null
+              ) : null}
+            </div>
           )}
           <CardContent
             sx={{
@@ -199,7 +207,7 @@ export default function Media({
                 }}
               >
                 <BsClock style={{ fontSize: "140%", marginRight: "2%" }} />{" "}
-                <span style={{fontWeight:'bold'}}>Xem sau</span>
+                <span style={{ fontWeight: "bold" }}>Xem sau</span>
               </Button>
               <Button
                 className={styles.btn}
@@ -216,16 +224,13 @@ export default function Media({
                 }}
               >
                 <CgPlayList style={{ fontSize: "170%", marginRight: "2%" }} />
-                <span style={{fontWeight:'bold'}}>Thêm vào danh sách chờ</span>
+                <span style={{ fontWeight: "bold" }}>
+                  Thêm vào danh sách chờ
+                </span>
               </Button>
             </Stack>
           ) : null}
         </Card>
-        {!loading?dura ? (
-          <div className={styles.duration}>{duration}</div>
-        ) : move ? (
-          <div className={styles.move}>Tiếp tục di chuột để phát</div>
-        ) : null:null}
       </div>
     </>
   );

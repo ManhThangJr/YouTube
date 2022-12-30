@@ -9,6 +9,6 @@ export const store = configureStore({
     isOpen,
     sign,
     account,
-  pass
+    pass,
   },
 });

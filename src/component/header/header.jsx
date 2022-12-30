@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./header.module.scss";
 import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
@@ -12,7 +12,6 @@ import { AiOutlineVideoCameraAdd } from "react-icons/ai";
 import { MdWifiTethering } from "react-icons/md";
 import { RiVideoLine } from "react-icons/ri";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
 import Tooltip from "@mui/material/Tooltip";
 import Popper from "@mui/material/Popper";
 import { isOpen } from "../redux/isOpen";
@@ -36,11 +35,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import IconButton from "@mui/material/IconButton";
 import { setPass } from "../redux/pass";
 import avatar from "../../img/avatar.jpg";
-import Progess from '../../MUI/progess'
+import Progess from "../../MUI/progess";
+import CheckProgess from "../../useContext/checkProgess";
+import Category from "../../useContext/category";
 
 function Header() {
-
-  const [checkProgess,setCheckProgess]=useState(true)
+  const progess = useContext(CheckProgess);
+  const cate = useContext(Category);
   const [check, setCheck] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
@@ -106,25 +107,27 @@ function Header() {
     if (query) {
       const search_query = query;
       setSearch({ search_query });
-      setCheckProgess(true)
+      progess.setCheckProgess(true);
       nav(`result?search_query=${query}`);
     }
   };
 
   const handleGohome = () => {
-    setCheckProgess(true)
+    cate?.setCategory("VN");
+    progess.setCheckProgess(true);
+    console.log(cate?.category);
     nav("/");
+    document.title='YouTube'
   };
-
   const [state, setState] = React.useState({
     left: false,
   });
   const toggleDrawer = (anchor, open) => () => {
     if (window.innerWidth > 1300) dispatch(isOpen(!isOpen));
-    setState({ ...state, ["left"]: (open===true?false:true) });
-    console.log('1')
+    setState({ ...state, ["left"]: open === true ? false : true });
+    console.log("1");
   };
- 
+
   function SwipeableTemporaryDrawer() {
     const list = (anchor) => (
       <Box
@@ -143,7 +146,11 @@ function Header() {
               />
             </div>
           </div>
-          <Nav state={state} setState={setState} toggle={toggleDrawer('left',true)}/>
+          <Nav
+            state={state}
+            setState={setState}
+            toggle={toggleDrawer("left", true)}
+          />
         </List>
       </Box>
     );
@@ -185,18 +192,19 @@ function Header() {
         setShow(false);
         setHeader(false);
       }
-      if (window.innerWidth < 560) setShow(true);
+      if (window.innerWidth < 685) setShow(true);
     });
+    progess.setCheckProgess(true);
   }, []);
 
   const [show, setShow] = useState(false);
   const [header, setHeader] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <>
-        <Progess  checkProgess={checkProgess} setCheckProgess={setCheckProgess}/>
+      <Progess />
       {!header ? (
-        
         <div className={styles.headerContainer}>
           <div className={styles.first}>
             <span className={styles.menuIcon}>
@@ -224,22 +232,31 @@ function Header() {
           </div>
           {!show ? (
             <div className={styles.wrapC}>
-              <div className={styles.wrap}>
+              {showSearch ? (
                 <SearchOutlined className={styles.searchIcon} />
+              ) : null}
+              <div className={showSearch ? styles.wrapp : styles.wrap}>
                 <input
                   type="text"
                   className={styles.search}
                   placeholder="Tìm kiếm"
                   list="list"
                   onChange={(e) => setQuery(e.target.value)}
+                  onFocus={() => {
+                    setShowSearch(true);
+                  }}
+                  onBlur={() => setShowSearch(false)}
                 ></input>
                 <span className={styles.keyboard}>
                   <FaKeyboard />
                 </span>
               </div>
               <Tooltip title="Tìm kiếm">
-                <span className={styles.searchIcon2}>
-                  <SearchOutlined onClick={(e) => handleSearch(e)} />
+                <span
+                  className={styles.searchIcon2}
+                  onClick={(e) => handleSearch(e)}
+                >
+                  <SearchOutlined />
                 </span>
               </Tooltip>
               <Tooltip title="Tìm kiếm bằng giọng nói">
@@ -270,7 +287,10 @@ function Header() {
                 </Tooltip>
 
                 <Popper id={id} open={open} anchorEl={anchorEl}>
-                  <Box className={styles.modal}>
+                  <Box
+                    className={styles.modal}
+                    onClick={() => setAnchorEl(null)}
+                  >
                     <div>
                       <RiVideoLine className={styles.iconModal} />
                       <span>Tải video lên</span>
@@ -294,7 +314,10 @@ function Header() {
                   </span>
                 </Tooltip>
                 <Popper id={id2} open={open2} anchorEl={anchorEl2}>
-                  <Box className={styles.modal2}>
+                  <Box
+                    className={styles.modal2}
+                    onClick={() => setAnchorEl2(null)}
+                  >
                     <div>
                       <p>Thông báo</p>
                       <FcSettings style={{ fontSize: "160%" }} />
@@ -467,6 +490,8 @@ function Header() {
                 alignItems: "center",
                 marginRight: "2%",
                 minWidth: 186,
+                flexGrow: 0.5,
+                justifyContent: "flex-end",
               }}
             >
               <Tooltip title="cài dặt">
@@ -478,7 +503,7 @@ function Header() {
                 id="btn"
                 onClick={() => nav(`/accounts`)}
                 variant="outlined"
-                sx={{ width: "100%", boderColor: "gray !important" }}
+                sx={{ boderColor: "gray !important" }}
               >
                 <AccountCircleIcon className={styles.admin} />
                 <span>Đăng nhập</span>
@@ -488,29 +513,32 @@ function Header() {
         </div>
       ) : (
         <div
-        className={styles.container2}
+          className={styles.container2}
           style={{
-            width: "90%",
-            height: "60px",
+            width: "100%",
+            height: "70px",
             display: "flex",
             textAlign: "center",
             alignItems: "center",
             margin: "0 auto",
             position: "fixed",
             zIndex: "99999",
+            top: 0,
+            backgroundColor: "white",
           }}
         >
           <BiArrowBack
-            style={{ fontSize: "130%", width: "10%" }}
+            style={{ fontSize: "130%", width: "10%", cursor: "pointer" }}
             onClick={() => setHeader(false)}
           />
           <div className={styles.wrapC2}>
+            <SearchOutlined className={styles.searchIcon} />
             <div className={styles.wrap2}>
-              <SearchOutlined className={styles.searchIcon} />
               <input
                 type="text"
                 className={styles.search2}
                 placeholder="Tìm kiếm"
+                autoFocus="true"
                 list="list"
                 onChange={(e) => setQuery(e.target.value)}
               ></input>

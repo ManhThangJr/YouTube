@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./detail.module.scss";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { fetching } from "../../fetching";
 import Button from "@mui/material/Button";
 import Card from "../../component/content/card/card2";
@@ -19,6 +19,7 @@ import Collapse from "@mui/material/Collapse";
 import FormControlLabel from "@mui/material/FormControlLabel";
 
 function Detail() {
+  const nav=useNavigate()
   const { id } = useParams();
   const [data, setData] = useState();
   const [hidden, setHidden] = useState(true);
@@ -36,14 +37,14 @@ function Detail() {
     });
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCd0swP7k-d0rWWPQ_NKsYnH8buvMM2F3Q&part=snippet&id=${id}`
+        `https://www.googleapis.com/youtube/v3/videos?key=AIzaSyDbOfLhWIQJFExk4AYMD5d1zYN6Gve90Bc&part=snippet&id=${id}`
       )
       .then((res) => {
         setInfo(res.data.items);
-        console.log(info);
+        document.title=res.data.items[0]?.snippet?.title
       });
-  }, []);
-
+    }, [id]);
+    console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -136,7 +137,7 @@ function Detail() {
             </Collapse>
           </Box>
 
-          <Comment />
+          <Comment id={id}/>
         </div>
       </div>
 
@@ -165,7 +166,7 @@ function Detail() {
         <div className={styles.videos}>
           {data?.map((value, index) => {
             return (
-              <div className={styles.item} key={index}>
+              <div className={styles.item} key={index} onClick={()=>nav(`/detail/${value?.id}`)}>
                 <Card
                   img={value.snippet.thumbnails.default.url}
                   title={value.snippet.title}
