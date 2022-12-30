@@ -51,6 +51,7 @@ function Nav({state,setState,toggle}) {
               <div key={index} onClick={()=>{
                toggle()
                cate?.setCategory('VN')
+               document.title='Youtube'
                nav('/')
               }}>
                 {item.icon}
