@@ -118,6 +118,7 @@ function Header() {
     console.log(cate?.category);
     nav("/");
     document.title='YouTube'
+    window.scrollTo(0,0)
   };
   const [state, setState] = React.useState({
     left: false,

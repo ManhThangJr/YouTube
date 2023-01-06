@@ -39,6 +39,7 @@ function Catetory() {
       })
       setCheck(newData)
       cate?.setCategory(data[index].id)
+      window.scrollTo(0,0)
     };
  useEffect(()=>{
   let newData=[...check]

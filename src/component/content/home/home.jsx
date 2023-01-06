@@ -29,7 +29,6 @@ function Home() {
           setLoading(false);
         });
       }
-      window.scrollTo(0,0)
   }, [categories?.category,amount]);
 
   const handleView = (v) => {
